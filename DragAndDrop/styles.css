@@ -1,0 +1,230 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    /* Soft background color */
+    font-family: 'Roboto', sans-serif;
+    /* Modern font */
+}
+
+.drag-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    max-width: 500px;
+    /* Maximum width */
+    max-height: 500px;
+    /* Maximum height */
+    border: 2px dashed #3b82f6;
+    /* Vibrant blue border */
+    border-radius: 10px;
+    font-weight: 400;
+    padding: 40px;
+    text-align: center;
+    background-color: #ffffff;
+    /* White background */
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition for state changes */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    cursor: pointer;
+    /* Pointer cursor for better UX */
+}
+
+.drag-image.active {
+    border-color: #2563eb;
+    /* Darker blue when active */
+    background-color: #f0f8ff;
+    /* Light blue background when active */
+    transform: scale(1.03);
+    /* Slight scale up on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* Enhanced shadow */
+}
+
+.drag-image.error {
+    border-color: #e63946;
+    /* Red border on error */
+    background-color: #ffe6e6;
+    /* Light red background on error */
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.drag-image h6 {
+    font-size: 1.25rem;
+    /* Adjusted font size for modern look */
+    font-weight: 500;
+    color: #1f2937;
+    /* Dark gray for contrast */
+    margin: 10px 0 15px 0;
+    transition: color 0.3s ease-in-out;
+    /* Smooth color transition */
+}
+
+.drag-image span {
+    font-size: 1rem;
+    /* Modern readable font size */
+    font-weight: 400;
+    color: #6b7280;
+    /* Medium gray for subtlety */
+    margin: 10px 0;
+    transition: color 0.3s ease-in-out;
+    /* Smooth color transition */
+}
+
+/* Button Styling */
+.drag-image button,
+form button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    /* Button font size for consistency */
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #3b82f6;
+    /* Blue background */
+    border: none;
+    /* No border for cleaner look */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    /* Smooth transitions */
+    margin-top: 10px;
+    display: block;
+    /* Ensure buttons are block-level elements */
+}
+
+.drag-image button:hover,
+form button:hover {
+    background-color: #2563eb;
+    /* Darker blue on hover */
+    transform: translateY(-2px);
+    /* Subtle lift effect on hover */
+}
+
+/* Disabled Button State */
+form button:disabled {
+    background-color: #d1d5db;
+    /* Light gray when disabled */
+    cursor: not-allowed;
+}
+
+/* File Name Display */
+#fileNameDisplay {
+    margin-top: 15px;
+    font-size: 1rem;
+    /* Font size for readability */
+    color: #374151;
+    /* Dark gray */
+    transition: opacity 0.3s ease-in-out;
+    /* Smooth fade in/out effect */
+    width: 100%;
+    text-align: left;
+}
+
+/* File List Container */
+.file-list {
+    max-height: 100px;
+    /* Adjust height for scrollbar */
+    overflow-y: auto;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #e5e7eb;
+    border-radius: 5px;
+    background-color: #f9fafb;
+}
+
+/* File Item */
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.file-item:hover {
+    background-color: #f3f4f6;
+    /* Light gray on hover */
+}
+
+/* Remove File Button */
+.remove-file-btn {
+    background: none;
+    border: none;
+    color: #e63946;
+    /* Red color for remove button */
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.remove-file-btn:hover {
+    color: #b71c1c;
+    /* Darker red on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .drag-image {
+        max-width: 90%;
+        /* Adjust width for smaller screens */
+        padding: 20px;
+    }
+
+    .drag-image h6 {
+        font-size: 1.125rem;
+        /* Slightly smaller font for tablets */
+    }
+
+    .drag-image span,
+    #fileNameDisplay {
+        font-size: 0.875rem;
+        /* Adjusted for smaller screens */
+    }
+
+    .drag-image button,
+    form button {
+        font-size: 0.875rem;
+        /* Adjusted for smaller screens */
+        padding: 10px 18px;
+        /* Smaller padding for buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    .drag-image {
+        max-width: 95%;
+        /* Almost full width for very small screens */
+        padding: 15px;
+    }
+
+    .drag-image h6,
+    .drag-image span,
+    .drag-image button,
+    form button,
+    #fileNameDisplay {
+        font-size: 0.75rem;
+        /* Further reduced for small screens */
+    }
+
+    .drag-image button,
+    form button {
+        padding: 8px 15px;
+        /* Adjusted padding */
+    }
+}
